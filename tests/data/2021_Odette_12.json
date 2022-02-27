@@ -1,0 +1,801 @@
+{
+    "active": false,
+    "info": {
+        "title": "TROPICAL CYCLONE BULLETIN NO. 12 for Typhoon “ODETTE”",
+        "count": 12,
+        "url": "https://pubfiles.pagasa.dost.gov.ph/tamss/weather/bulletin/TCB%2312_odette.pdf",
+        "final": false,
+        "issued": "2021-12-16T09:00:00.000Z",
+        "expires": "2021-12-16T12:00:00.000Z",
+        "summary": "“ODETTE” MAINTAINS ITS STRENGTH AND IS NOW OVER LILOAN, SOUTHERN LEYTE."
+    },
+    "cyclone": {
+        "name": "ODETTE",
+        "prevailing": true,
+        "center": {
+            "lat": 10.1,
+            "lon": 125.2
+        },
+        "movement": "Westward at 30 km/h"
+    },
+    "signals": {
+        "1": {
+            "areas": {
+                "0": [
+                    {
+                        "name": "Catanduanes",
+                        "part": false
+                    },
+                    {
+                        "name": "Camarines Norte",
+                        "part": false
+                    },
+                    {
+                        "name": "Camarines Sur",
+                        "part": false
+                    },
+                    {
+                        "name": "Marinduque",
+                        "part": false
+                    },
+                    {
+                        "name": "Quezon",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "southern",
+                            "objects": [
+                                "San Antonio",
+                                "Tiaong",
+                                "Candelaria",
+                                "Sariaya",
+                                "Dolores",
+                                "Lucena City",
+                                "Pagbilao",
+                                "Padre Burgos",
+                                "Atimonan",
+                                "Agdangan",
+                                "Unisan",
+                                "Gumaca",
+                                "Plaridel",
+                                "Pitogo",
+                                "Lopez",
+                                "Guinayangan",
+                                "Buenavista",
+                                "Catanauan",
+                                "General Luna",
+                                "Macalelon",
+                                "Mulanay",
+                                "San Narciso",
+                                "San Andres",
+                                "San Francisco",
+                                "Tagkawayan",
+                                "Calauag",
+                                "Quezon",
+                                "Alabat",
+                                "City of Tayabas",
+                                "Perez"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Batangas",
+                        "part": false
+                    }
+                ],
+                "1": [],
+                "2": [
+                    {
+                        "name": "Davao Oriental",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Baganga",
+                                "Cateel",
+                                "Boston"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Davao de Oro",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Laak",
+                                "Mawab",
+                                "Nabunturan",
+                                "Montevista",
+                                "Monkayo",
+                                "New Bataan",
+                                "Compostela"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Davao del Norte",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Talaingod",
+                                "Santo Tomas",
+                                "Kapalong",
+                                "Asuncion",
+                                "San Isidro",
+                                "New Corella"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Bukidnon",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Lanao del Norte",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Lanao del Sur",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Zamboanga del Norte",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "rest of northern",
+                            "objects": [
+                                "Labason",
+                                "Kalawit",
+                                "Tampilisan",
+                                "Liloy",
+                                "Salug",
+                                "Godod",
+                                "Bacungan",
+                                "Gutalac",
+                                "Baliguian"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Zamboanga del Sur",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "rest of northern",
+                            "objects": [
+                                "Bayog",
+                                "Lakewood",
+                                "Kumalarang",
+                                "Guipos",
+                                "Dumalinao",
+                                "Tukuran",
+                                "Ramon Magsaysay",
+                                "Aurora",
+                                "Sominot",
+                                "Tigbao",
+                                "Labangan",
+                                "Pagadian City",
+                                "Midsalip"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Zamboanga Sibugay",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Titay",
+                                "Ipil",
+                                "Naga",
+                                "Kabasalan",
+                                "Siay",
+                                "Diplahan",
+                                "Buug"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "2": {
+            "areas": {
+                "0": [
+                    {
+                        "name": "Albay",
+                        "part": false
+                    },
+                    {
+                        "name": "Sorsogon",
+                        "part": false
+                    },
+                    {
+                        "name": "Masbate",
+                        "part": false,
+                        "islands": [
+                            {
+                                "name": "Ticao Island",
+                                "part": false
+                            },
+                            {
+                                "name": "Burias Island",
+                                "part": false
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Romblon",
+                        "part": false
+                    },
+                    {
+                        "name": "Oriental Mindoro",
+                        "part": false
+                    },
+                    {
+                        "name": "Occidental Mindoro",
+                        "part": false
+                    },
+                    {
+                        "name": "mainlanad Palawan",
+                        "part": false,
+                        "islands": [
+                            {
+                                "name": "Kalayaan Island",
+                                "part": false
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Balabac",
+                        "part": false
+                    },
+                    {
+                        "name": "Cuyo",
+                        "part": false
+                    },
+                    {
+                        "name": "Calamian Island",
+                        "part": false
+                    }
+                ],
+                "1": [
+                    {
+                        "name": "Northern Samar",
+                        "part": false
+                    },
+                    {
+                        "name": "Eastern Samar",
+                        "part": false
+                    },
+                    {
+                        "name": "Samar",
+                        "part": false
+                    },
+                    {
+                        "name": "Biliran",
+                        "part": false
+                    },
+                    {
+                        "name": "Leyte",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Cebu",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Negros Occidental",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Iloilo",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Capiz",
+                        "part": false
+                    },
+                    {
+                        "name": "Aklan",
+                        "part": false
+                    },
+                    {
+                        "name": "Antique",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    }
+                ],
+                "2": [
+                    {
+                        "name": "Surigao del Sur",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Agusan del Sur",
+                        "part": false
+                    },
+                    {
+                        "name": "Agusan del Norte",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Zamboanga del Norte",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "extreme northern",
+                            "objects": [
+                                "Dapitan City",
+                                "Siayan",
+                                "Sindangan",
+                                "Jose Dalman",
+                                "Manukan",
+                                "Pres. Manuel A. Roxas",
+                                "Katipunan",
+                                "Sergio Osmeña Sr.",
+                                "Polanco",
+                                "Dipolog City",
+                                "Piñan",
+                                "Mutia",
+                                "La Libertad",
+                                "Rizal",
+                                "Sibutad"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Zamboanga del Sur",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "extreme northern",
+                            "objects": [
+                                "Josefina",
+                                "Molave",
+                                "Mahayag",
+                                "Dumingag",
+                                "Tambulig"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Misamis Occidental",
+                        "part": false
+                    },
+                    {
+                        "name": "Lanao del Norte",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Kolambugan",
+                                "Maigo",
+                                "Munai",
+                                "Bacolod",
+                                "Poona Piagapo",
+                                "Kauswagan",
+                                "Pantao Ragat",
+                                "Matungao",
+                                "Linamon",
+                                "Baloi",
+                                "Tagoloan",
+                                "Pantar",
+                                "Iligan City"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Misamis Oriental",
+                        "part": false
+                    },
+                    {
+                        "name": "Camiguin",
+                        "part": false
+                    },
+                    {
+                        "name": "Bukidnon",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Cabanglasan",
+                                "City of Malaybalay",
+                                "Lantapan",
+                                "Talakag",
+                                "Baungon",
+                                "Libona",
+                                "Manolo Fortich",
+                                "Sumilao",
+                                "Impasug-Ong",
+                                "Malitbog"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Lanao del Sur",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Tagoloan II",
+                                "Kapai"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "3": {
+            "areas": {
+                "0": [
+                    {
+                        "name": "Cagayancillo Island",
+                        "part": false
+                    }
+                ],
+                "1": [
+                    {
+                        "name": "Leyte",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "rest of southern",
+                            "objects": [
+                                "Abuyog",
+                                "Mahaplag",
+                                "Hindang",
+                                "Inopacan",
+                                "City of Baybay",
+                                "Javier",
+                                "Macarthur"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Cebu",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Camotes Islands",
+                                "Tuburan",
+                                "Catmon",
+                                "Carmen",
+                                "Danao City",
+                                "Asturias",
+                                "Balamban",
+                                "Dalaguete",
+                                "Sogod"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Negros Oriental",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Siquijor",
+                        "part": false
+                    },
+                    {
+                        "name": "Negros Occidental",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Calatrava",
+                                "San Carlos City",
+                                "Salvador Benedicto",
+                                "City of Talisay",
+                                "Silay City",
+                                "Bacolod City",
+                                "Murcia",
+                                "Bago City",
+                                "Valladolid",
+                                "Pulupandan",
+                                "La Carlota City",
+                                "San Enrique"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Guimaras",
+                        "part": false
+                    },
+                    {
+                        "name": "Iloilo",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "southern",
+                            "objects": [
+                                "Iloilo City",
+                                "Pavia",
+                                "Leganes",
+                                "Santa Barbara",
+                                "San Miguel",
+                                "Alimodian",
+                                "Oton",
+                                "Leon",
+                                "Tigbauan",
+                                "Tubungan",
+                                "Igbaras",
+                                "Guimbal",
+                                "Miagao",
+                                "San Joaquin",
+                                "Dumangas",
+                                "Zarraga",
+                                "New Lucena",
+                                "Cabatuan",
+                                "Maasin"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Antique",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "southern",
+                            "objects": [
+                                "San Remigio",
+                                "Patnongon",
+                                "Belison",
+                                "San Jose",
+                                "Sibalom",
+                                "Hamtic",
+                                "Tobias Fornier",
+                                "Anini-Y"
+                            ]
+                        }
+                    }
+                ],
+                "2": [
+                    {
+                        "name": "Agusan del Norte",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Kitcharao",
+                                "Jabonga",
+                                "Santiago",
+                                "Tubay",
+                                "City of Cabadbaran"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Surigao del Sur",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Carrascal",
+                                "Cantilan",
+                                "Madrid",
+                                "Carmen",
+                                "Lanuza",
+                                "Cortes",
+                                "City of Tandag"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "4": {
+            "areas": {
+                "0": [],
+                "1": [
+                    {
+                        "name": "Southern Leyte",
+                        "part": false
+                    },
+                    {
+                        "name": "Leyte",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "southwestern",
+                            "objects": [
+                                "Hilongos",
+                                "Bato",
+                                "Matalom"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Bohol",
+                        "part": false
+                    },
+                    {
+                        "name": "Cebu",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "central and southern",
+                            "objects": [
+                                "Lapu-Lapu City",
+                                "Cordova",
+                                "Cebu City",
+                                "Mandaue City",
+                                "Consolacion",
+                                "Liloan",
+                                "Toledo City",
+                                "City of Talisay",
+                                "Minglanilla",
+                                "City of Naga",
+                                "Pinamungahan",
+                                "San Fernando",
+                                "City of Carcar",
+                                "Aloguinsan",
+                                "Barili",
+                                "Sibonga",
+                                "Dumanjug",
+                                "Ronda",
+                                "Argao",
+                                "Alcantara",
+                                "Moalboal",
+                                "Badian",
+                                "Dalaguete",
+                                "Alcoy",
+                                "Alegria",
+                                "Malabuyoc",
+                                "Boljoon",
+                                "Oslob",
+                                "Ginatilan",
+                                "Samboan",
+                                "Santander"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Negros Oriental",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "central and southern",
+                            "objects": [
+                                "Canlaon City",
+                                "Vallehermoso",
+                                "City of Guihulngan",
+                                "La Libertad",
+                                "Jimalalud",
+                                "Tayasan",
+                                "Ayungon",
+                                "Bindoy",
+                                "Manjuyod",
+                                "Mabinay",
+                                "City of Bayawan",
+                                "Basay",
+                                "Bais City",
+                                "Pamplona",
+                                "San Jose",
+                                "City of Tanjay",
+                                "Amlan"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Negros Occidental",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "central and southern",
+                            "objects": [
+                                "La Castellana",
+                                "Pontevedra",
+                                "Hinigaran",
+                                "Moises Padilla",
+                                "Isabela",
+                                "Binalbagan",
+                                "City of Himamaylan",
+                                "City of Kabankalan",
+                                "Ilog",
+                                "Cauayan",
+                                "Candoni",
+                                "City of Sipalay",
+                                "Hinoba-An"
+                            ]
+                        }
+                    }
+                ],
+                "2": [
+                    {
+                        "name": "Dinagat Island",
+                        "part": false
+                    },
+                    {
+                        "name": "Surigao del Norte",
+                        "part": false,
+                        "islands": [
+                            {
+                                "name": "Siargao Island",
+                                "part": false
+                            },
+                            {
+                                "name": "Bucas Island",
+                                "part": false
+                            },
+                            {
+                                "name": "Grande Island",
+                                "part": false
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "5": null
+    }
+}
