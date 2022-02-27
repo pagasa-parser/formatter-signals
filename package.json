@@ -1,0 +1,60 @@
+{
+    "name": "@pagasa-parser/template",
+    "version": "1.0.0",
+    "description": "A template for PAGASA Parser modules.",
+    "main": "build/PagasaParserTemplate.js",
+    "types": "build/PagasaParserTemplate.d.ts",
+    "files": [
+        "bin",
+        "build",
+        "LICENSE",
+        "package.json",
+        "package-lock.json",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "test": "jest",
+        "coverage": "npm run coverage:full",
+        "coverage:full": "jest --coverage --collectCoverageFrom=src/**/*.{js,jsx,ts,tsx}",
+        "coverage:minimal": "jest --coverage",
+        "prepack": "npm run clean && npm run build",
+        "clean": "rimraf build",
+        "prepare": "husky install"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pagasa-parser/template.git"
+    },
+    "keywords": [
+        "scraper",
+        "weather",
+        "json",
+        "philippines",
+        "typhoon"
+    ],
+    "author": "Chlod Alejandro <chlod@chlod.net> (https://chlod.net)",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/pagasa-parser/template/issues"
+    },
+    "homepage": "https://github.com/pagasa-parser/template#readme",
+    "engines": {
+        "node": ">=13"
+    },
+    "devDependencies": {
+        "@types/cheerio": "^0.22.30",
+        "@types/jest": "^27.0.1",
+        "@typescript-eslint/eslint-plugin": "^4.6.0",
+        "eslint": "^7.12.1",
+        "husky": "^7.0.4",
+        "jest": "^27.1.0",
+        "rimraf": "^3.0.2",
+        "ts-jest": "^27.0.5",
+        "ts-node": "^10.2.1",
+        "typescript": "^4.4.2"
+    },
+    "peerDependencies": {
+        "pagasa-parser": "^2.0.10"
+    }
+}
