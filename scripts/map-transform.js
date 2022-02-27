@@ -13,7 +13,6 @@ const MAP_PATH = path.resolve(ASSET_DIR, "map.svg");
 const SOURCE_SVG = "https://upload.wikimedia.org/wikipedia/commons/9/9a/Municipalities_of_the_Philippines_%28simplified%29.svg";
 
 // Colors
-const WATER_COLOR = "#002174";
 const LAND_COLOR  = "#74b474";
 
 const USER_AGENT = `${packageJson.name}/${packageJson.version} (https://github.com/pagasa-parser/formatter-signals) axios/${axios.VERSION}`;
@@ -95,16 +94,6 @@ function progressBar(indent, width, progress, extraText = "") {
     process.stdout.write("\n");
     console.log("[i] Performing transformations...");
     const $ = cheerio.load(mapData, { xmlMode: true });
-
-    // Sets the background (water) color.
-    const $svg = $("svg");
-    const svgStyle = $svg.attr("style");
-    $svg.attr(
-        "style",
-        svgStyle == null
-            ? `background-color: ${WATER_COLOR}`
-            : `${svgStyle}; background-color: ${WATER_COLOR}`
-    );
 
     const $Provinces = $("#Provinces path");
     // Make provinces transparent.

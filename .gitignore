@@ -16,3 +16,4 @@ tests/out
 
 # Automatically-built files
 .npmignore
+assets/map.svg

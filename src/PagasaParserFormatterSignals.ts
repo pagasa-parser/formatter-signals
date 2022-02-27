@@ -16,6 +16,9 @@ import {makeAbsolute, parseSVG} from "svg-path-parser";
 import svgpath from "svgpath";
 import {hasOverlap2D} from "./util/hasOverlap";
 import resizeToAspectRatio from "./util/resizeToAspectRatio";
+import {scale} from "scale-that-svg";
+import zeroPad from "./util/zeroPad";
+import capitalize from "./util/capitalize";
 
 interface PagasaParserFormatterSignalsOptions {
     colors: Partial<PagasaParserFormatterSignals["colors"]>;
@@ -43,6 +46,7 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
         top: 500, right: 500, bottom: 500, left: 500
     };
 
+    public readonly waterColor = "#002174";
     public readonly colors: { [key in keyof TCWSLevels]: string } = {
         1: "#00aaff",
         2: "#fff200",
@@ -50,8 +54,17 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
         4: "#ff0000",
         5: "#cd00cd"
     };
+    public readonly size: number = 4096;
+    /**
+     * A change in the aspect ratio will require a change in the overlay.
+     * @private
+     */
+    private readonly aspectRatio: number = 16 / 9;
 
     static areaId(area: string, parentArea: string = null): string {
+        if (parentArea === "Davao de Oro")
+            parentArea = "Compostela Valley";
+
         if (parentArea == null)
             return area
                 .replace(/ /g, "_");
@@ -72,20 +85,27 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
     }
 
     async format(bulletin: Bulletin): Promise<Buffer> {
-        const $ = cheerio.load(
+        let $ = cheerio.load(
             fs.readFileSync(path.resolve(__dirname, "..", "assets", "map.svg"))
                 .toString("utf8"),
             { xmlMode: true }
         );
 
-        this.colorAreas($, bulletin);
+        // Color TCWS-affected areas.
+        this.processAreas($, bulletin);
+        // Crop to include only TCWS-affected areas.
         this.cropToBox($, this.findBoundingBox($));
+        // Add blue background for water.
+        this.addBackground($);
+        // Rescale the SVG.
+        $ = cheerio.load(await this.rescale($), { xmlMode: true });
+        // Add the overlay
+        await this.addOverlay($, bulletin);
 
         return Buffer.from($.xml());
     }
 
-    colorAreas($: cheerio.Root, bulletin: Bulletin): void {
-
+    processAreas($: cheerio.Root, bulletin: Bulletin): void {
         for (const [signal, data] of Object.entries(bulletin.signals)) {
             if (data == null) continue;
             for (const [, areas] of Object.entries(data.areas)) {
@@ -104,6 +124,12 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
 
             if (area.name.endsWith("Island"))
                 forMarking.push($(`#${escapeForCss(PagasaParserFormatterSignals.areaId(area.name))}s`));
+
+            // Remove all municipalities for this area (conserves space).
+            $(`#Municipalities [data-province="${
+                escapeForCss(area.name)
+            }"]`)
+                .remove();
         } else if (areaIsPart(area) || areaIsRestOf(area)) {
             if (area.includes.objects != null) {
                 for (const part of area.includes.objects) {
@@ -123,10 +149,6 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
     }
 
     findBoundingBox($: cheerio.Root, options: Partial<BoundingBoxOptions> = {}): Bounds {
-        const $svg = $("svg");
-
-        const height = +$svg.attr("height");
-        const width = +$svg.attr("width");
         let x1: number, x2: number, y1: number, y2: number;
 
         const padding: { top: number, right: number, bottom: number, left: number } = Object.assign(
@@ -160,26 +182,33 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
         });
 
         // Perform padding transforms and clamp to area within box.
-        x1 = Math.max(0, x1 - padding.left);
-        x2 = Math.min(width, x2 + padding.right);
-        y1 = Math.max(0, y1 - padding.top);
-        y2 = Math.min(height, y2 + padding.bottom);
+        x1 = x1 - padding.left;
+        x2 = x2 + padding.right;
+        y1 = y1 - padding.top;
+        y2 = y2 + padding.bottom;
 
         // Force 16:9 aspect ratio.
-        const toResize = resizeToAspectRatio(16/9, { x1, x2, y1, y2 });
-        console.log({ x1, x2, y1, y2, toResize });
+        const toResize = resizeToAspectRatio(this.aspectRatio, { x1, x2, y1, y2 });
         x1 -= toResize.x / 2;
         x2 += toResize.x / 2;
         y1 -= toResize.y / 2;
         y2 += toResize.y / 2;
-        console.log({ x1, x2, y1, y2 });
 
         return { x1, x2, y1, y2 };
     }
 
-    cropToBox($: cheerio.Root, bounds: Bounds): void {
-        // Find all paths and translate position depending on x1 and y1.
+    cropToBox($: cheerio.Root, newBounds: Bounds): void {
+        // Update the SVG height and width.
+        const $svg = $("svg");
+        const newWidth = newBounds.x2 - newBounds.x1;
+        const newHeight = newBounds.y2 - newBounds.y1;
+        $svg.attr("width", `${newWidth.toFixed(2)}`);
+        $svg.attr("height", `${newHeight.toFixed(2)}`);
+        $svg.attr("viewBox", `0 0 ${newWidth.toFixed(2)} ${newHeight.toFixed(2)}`);
+
+        // Update each path.
         $("path").each((_, path) => {
+            // Find all paths and translate position depending on x1 and y1.
             const $path = $(`#${escapeForCss((path as any).attribs.id)}`);
 
             let x1: number = null, x2: number = null, y1: number = null, y2: number = null;
@@ -192,25 +221,114 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
                 if (y2 == null || y2 < command.y) y2 = command.y;
             }
 
-            if (!hasOverlap2D(bounds, { x1, x2, y1, y2 })) {
+            if (!hasOverlap2D(newBounds, { x1, x2, y1, y2 })) {
                 $path.remove();
                 return;
             }
 
             $path.attr("d",
                 svgpath($path.attr("d"))
-                    .translate(-bounds.x1, -bounds.y1)
+                    .translate(-newBounds.x1, -newBounds.y1)
                     .round(2)
                     .toString()
             );
-        });
 
-        const $svg = $("svg");
-        const newWidth = bounds.x2 - bounds.x1;
-        const newHeight = bounds.y2 - bounds.y1;
-        $svg.attr("width", `${newWidth.toFixed(2)}`);
-        $svg.attr("height", `${newHeight.toFixed(2)}`);
-        $svg.attr("viewBox", `0 0 ${newWidth.toFixed(2)} ${newHeight.toFixed(2)}`);
+            // Thicker path lines.
+            const vmax = Math.max(newHeight, newWidth);
+            const provinceLineThickness = vmax * 0.0005;
+            const municipalityLineThickness = vmax * 0.0001;
+
+            if ($path.attr("id").includes("+")) {
+                $path.attr("stroke-width", `${municipalityLineThickness}`);
+            } else {
+                $path.attr("stroke-width", `${provinceLineThickness}`);
+            }
+        });
     }
 
+    addBackground($: cheerio.Root): void {
+        const $svg = $("svg");
+        const width = $svg.attr("width");
+        const height = $svg.attr("height");
+
+        $svg.prepend(
+            `<rect id="Water" x="0" y="0" width="${width}" height="${height}" fill="${this.waterColor}" />`
+        );
+    }
+
+    async rescale($: cheerio.Root): Promise<string> {
+        const svgText = $.xml();
+        const $svg = $("svg");
+
+        const dim = +(this.aspectRatio >= 1 ? $svg.attr("width") : $svg.attr("height"));
+        const scaleFactor = this.size / dim;
+
+        return await scale(svgText, { scale: scaleFactor });
+    }
+
+    async addOverlay($: cheerio.Root, bulletin: Bulletin): Promise<void> {
+        const $o = cheerio.load(
+            fs.readFileSync(path.resolve(__dirname, "..", "assets", "overlay.svg"))
+                .toString("utf8"),
+            { xmlMode: true }
+        );
+
+        const name = `${capitalize(bulletin.cyclone.category ?? "")} ${ 
+            bulletin.cyclone.internationalName && bulletin.cyclone.name
+                ? `${
+                    capitalize(bulletin.cyclone.internationalName)
+                } (${
+                    capitalize(bulletin.cyclone.name)
+                })`
+                : (`${capitalize(bulletin.cyclone.internationalName || bulletin.cyclone.name)}`)
+        }`.trim();
+
+        $o("#name").text(name);
+        $o("#bulletinCount").text(`${bulletin.info.count}`);
+        $o("#bulletinIssued").text(`${(() => {
+            // By performing all calculations by translating UTC to Philippine Time,
+            // we avoid the complications of compensating for the timezone of a device
+            // from a non-UTC+8 timezone.
+            
+            const phTime = new Date(bulletin.info.issued.getTime());
+            phTime.setUTCHours(phTime.getUTCHours() + 8);
+            // phTime now uses UTC+8 as the UTC timezone.
+            
+            return `${
+                zeroPad(phTime.getUTCHours())
+            }:${
+                zeroPad(phTime.getUTCMinutes())
+            }, ${
+                phTime.getUTCDate()
+            } ${
+                [
+                    "Jan", "Feb", "Mar",
+                    "Apr", "May", "Jun",
+                    "Jul", "Aug", "Sep",
+                    "Oct", "Nov", "Dec"
+                ][phTime.getUTCMonth()]
+            } ${
+                phTime.getUTCFullYear()
+            }`;
+        })()}`);
+
+        for (const [level, areas] of Object.entries(bulletin.signals)) {
+            if (areas !== null) {
+                $o("#TCWS" + level).attr("opacity", "1");
+            } else {
+                $o("#TCWS" + level).attr("opacity", "0.2");
+            }
+        }
+
+        const overlaySVGML = $o.xml($o("#Overlay"));
+        if (this.size !== 4096) {
+            const $osvg = $o("svg");
+            const dim = +(this.aspectRatio >= 1 ? $osvg.attr("width") : $osvg.attr("height"));
+            const scaleFactor = this.size / dim;
+
+            $("svg").append(await scale(overlaySVGML, { scale: scaleFactor }));
+        } else {
+            $("svg").append(overlaySVGML);
+        }
+    }
 }

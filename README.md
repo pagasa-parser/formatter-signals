@@ -16,5 +16,8 @@ Some processing is done in different stages of execution:
   * Changing the colors of each province on the map to their respective TCWS levels.
   * Cropping the map only to include parts which have raised signals, with extra space for legends.
   * Changing the stroke width for municipalities and provinces for clarity on smaller scales.
-  * Adding the legends and province names.
-  * Rendering the image, if creating a raster file.
+  * _(to do)_ Adding the legends and province names.
+  * _(to do)_ Rendering the image, if creating a raster file.
+
+## Developing
+Make sure to run `node scripts/map-generator.js` to generate the base map. If you're using the npm package, there's no need to perform this step as the base map is prepackaged.

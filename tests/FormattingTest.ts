@@ -1,24 +1,24 @@
-import * as fs from "fs";
+import * as fs from "fs-jetpack";
 import * as path from "path";
 import {Bulletin} from "pagasa-parser";
 import PagasaParserFormatterSignals from "../src/PagasaParserFormatterSignals";
 
 describe("Formatting tests", () => {
 
-    if (!fs.existsSync(path.join(__dirname, "out"))) {
-        fs.mkdirSync(path.join(__dirname, "out"));
+    if (fs.exists(path.join(__dirname, "out")) !== "dir") {
+        fs.dir(path.join(__dirname, "out"));
     }
 
-    const testFiles: [string, Bulletin][] = fs.readdirSync(path.join(__dirname, "data"))
-        .filter(e => fs.lstatSync(path.join(__dirname, "data", e)).isFile() && e.endsWith(".json"))
-        .map(e => [e, JSON.parse(fs.readFileSync(path.join(__dirname, "data", e)).toString())]);
+    const testFiles: [string, Bulletin][] = fs.list(path.join(__dirname, "data"))
+        .filter(e => fs.exists(path.join(__dirname, "data", e)) === "file" && e.endsWith(".json"))
+        .map(e => [e, fs.read(path.join(__dirname, "data", e), "jsonWithDates")]);
 
     for (const [filename, testData] of testFiles) {
         test(filename, async () => {
             const formatData = await new PagasaParserFormatterSignals().format(testData);
 
             expect(formatData instanceof Buffer).toBeTruthy();
-            fs.writeFileSync(
+            fs.write(
                 path.join(__dirname, "out", filename.replace(/\.json$/g, ".svg")),
                 formatData.toString("utf8")
             );
