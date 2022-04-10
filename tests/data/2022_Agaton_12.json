@@ -1,0 +1,224 @@
+{
+    "active": true,
+    "info": {
+        "title": "TROPICAL CYCLONE BULLETIN NO. 12 for Tropical Storm “AGATON” (MEGI)",
+        "count": 12,
+        "url": "https://pubfiles.pagasa.dost.gov.ph/tamss/weather/bulletin/TCB%2312_agaton.pdf",
+        "final": false,
+        "issued": "2022-04-10T06:00:00.000Z",
+        "expires": "2022-04-10T09:00:00.000Z",
+        "summary": "“AGATON” CONTINUES TO MOVE SLOWLY WESTWARD OVER THE COASTAL WATERS OF BALANGIGA,\rEASTERN SAMAR."
+    },
+    "cyclone": {
+        "name": "AGATON",
+        "internationalName": "MEGI",
+        "category": "Tropical Storm",
+        "prevailing": true,
+        "center": {
+            "lat": 10.9,
+            "lon": 125.6
+        },
+        "movement": "Westward Slowly"
+    },
+    "signals": {
+        "1": {
+            "areas": {
+                "0": [
+                    {
+                        "name": "Masbate",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "southern",
+                            "objects": [
+                                "Dimasalang",
+                                "Palanas",
+                                "Cataingan",
+                                "Pio V. Corpuz",
+                                "Esperanza",
+                                "Placer",
+                                "Cawayan"
+                            ]
+                        }
+                    }
+                ],
+                "1": [
+                    {
+                        "name": "Eastern Samar",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Samar",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Northern Samar",
+                        "part": false
+                    },
+                    {
+                        "name": "Biliran",
+                        "part": false
+                    },
+                    {
+                        "name": "Leyte",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Southern Leyte",
+                        "part": false
+                    },
+                    {
+                        "name": "Cebu",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Borbon",
+                                "Tabogon",
+                                "San Remigio",
+                                "Bogo City",
+                                "Medellin",
+                                "Daanbantayan",
+                                "Bantayan Islands"
+                            ]
+                        },
+                        "islands": [
+                            {
+                                "name": "Camotes Island",
+                                "part": false
+                            }
+                        ]
+                    }
+                ],
+                "2": [
+                    {
+                        "name": "Surigao del Norte",
+                        "part": false
+                    },
+                    {
+                        "name": "Dinagat Islands",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    }
+                ]
+            }
+        },
+        "2": {
+            "areas": {
+                "0": [],
+                "1": [
+                    {
+                        "name": "Eastern Samar",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "central and southern",
+                            "objects": [
+                                "Can-Avid",
+                                "Taft",
+                                "Sulat",
+                                "San Julian",
+                                "Borongan City",
+                                "Maydolong",
+                                "Balangkayan",
+                                "Llorente",
+                                "Balangiga",
+                                "Lawaan",
+                                "Hernani",
+                                "General Macarthur",
+                                "Quinapondan",
+                                "Giporlos",
+                                "Salcedo",
+                                "Mercedes",
+                                "Guiuan"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Samar",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "central and southern",
+                            "objects": [
+                                "Catbalogan City",
+                                "Jiabong",
+                                "Motiong",
+                                "Paranas",
+                                "Hinabangan",
+                                "Calbiga",
+                                "San Sebastian",
+                                "Villareal",
+                                "Pinabacdao",
+                                "Santa Rita",
+                                "Basey",
+                                "Talalora",
+                                "Daram",
+                                "Zumarraga",
+                                "Marabut"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Leyte",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northeastern",
+                            "objects": [
+                                "Babatngon",
+                                "San Miguel",
+                                "Barugo",
+                                "Tunga",
+                                "Alangalang",
+                                "Tacloban City",
+                                "Santa Fe",
+                                "Pastrana",
+                                "Palo",
+                                "Tanauan",
+                                "Tolosa",
+                                "Dulag",
+                                "Mayorga"
+                            ]
+                        }
+                    }
+                ],
+                "2": [
+                    {
+                        "name": "Dinagat Islands",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Loreto",
+                                "Tubajon"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "3": null,
+        "4": null,
+        "5": null
+    }
+}

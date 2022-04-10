@@ -72,7 +72,7 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
             return `${parentArea
                 .replace(/ /g, "_")
             }+${area
-                .replace(/^(.+) City$/gi, "City of $1")
+                .replace(/^City of (.+)$/gi, "$1 City")
                 .replace(/ /g, "_")
             }`;
     }

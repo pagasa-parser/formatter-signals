@@ -105,6 +105,26 @@ function progressBar(indent, width, progress, extraText = "") {
     // Fill municipalities with land color.
     $Municipalities.attr("fill", LAND_COLOR);
 
+    // Standardize "City of $1" and "$1 City" to "$1 City"
+    $("#Municipalities [data-municipality^=\"City of\" i]").each((i, municipality) => {
+        const $municipality = $(municipality);
+
+        const municipalityName = $municipality.attr("data-municipality")
+            .replace(/^City of (.+)$/, "$1 City");
+
+        $municipality.attr("data-municipality", municipalityName);
+        const provinceName = $municipality.attr("data-province");
+
+        $municipality.attr(
+            "id",
+            `${
+                provinceName.replace(/ /g, "_")
+            }+${
+                municipalityName.replace(/ /g, "_")
+            }`
+        );
+    });
+
     // Ensure that provinces appear on top of municipalities to emphasize border.
     $("#Provinces").insertAfter("#Municipalities");
 
