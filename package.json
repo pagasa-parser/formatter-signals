@@ -1,6 +1,6 @@
 {
     "name": "@pagasa-parser/formatter-signals",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Generates storm signal images from PAGASA Parser bulletins.",
     "main": "build/PagasaParserFormatterSignals.js",
     "types": "build/PagasaParserFormatterSignals.d.ts",
