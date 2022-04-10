@@ -109,7 +109,9 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
     }
 
     processAreas($: cheerio.Root, bulletin: Bulletin): void {
-        for (const [signal, data] of Object.entries(bulletin.signals)) {
+        for (const [signal, data] of Object.entries(bulletin.signals).sort(
+            (a, b) => +a[0] - +b[0]
+        )) {
             if (data == null) continue;
             for (const [, areas] of Object.entries(data.areas)) {
                 for (const area of areas) {
@@ -141,7 +143,9 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
                     )}`));
                 }
             } else {
-                forMarking.push($(`#${escapeForCss(PagasaParserFormatterSignals.areaId(area.name))}`));
+                forMarking.push($(`[data-province="${
+                    escapeForCss(area.name)
+                }"][data-municipality]`));
             }
         }
 
