@@ -1,0 +1,181 @@
+{
+    "active": true,
+    "info": {
+        "title": "TROPICAL CYCLONE BULLETIN NO. 10 for Tropical Storm “AGATON”",
+        "count": 10,
+        "url": "https://pubfiles.pagasa.dost.gov.ph/tamss/weather/bulletin/TCB%2310_agaton.pdf",
+        "final": false,
+        "issued": "2022-04-10T00:00:00.000Z",
+        "expires": "2022-04-10T03:00:00.000Z",
+        "summary": "“AGATON” FURTHER INTENSIFIES AND IS ABOUT TO MAKE LANDFALL OVER THE SOUTHEASTERN\rPORTION OF EASTERN SAMAR"
+    },
+    "cyclone": {
+        "name": "AGATON",
+        "category": "Tropical Storm",
+        "prevailing": true,
+        "center": {
+            "lat": 11,
+            "lon": 125.9
+        },
+        "movement": "West northwestward at 10 km/h"
+    },
+    "signals": {
+        "1": {
+            "areas": {
+                "0": [],
+                "1": [
+                    {
+                        "name": "Eastern Samar",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Samar",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Northern Samar",
+                        "part": false
+                    },
+                    {
+                        "name": "Biliran",
+                        "part": false
+                    },
+                    {
+                        "name": "Leyte",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    },
+                    {
+                        "name": "Southern Leyte",
+                        "part": false
+                    },
+                    {
+                        "name": "Cebu",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northeastern",
+                            "objects": [
+                                "Daanbantayan",
+                                "Medellin",
+                                "Bogo City",
+                                "Tabogon",
+                                "Borbon"
+                            ]
+                        },
+                        "islands": [
+                            {
+                                "name": "Camotes Island",
+                                "part": false
+                            }
+                        ]
+                    }
+                ],
+                "2": [
+                    {
+                        "name": "Surigao del Norte",
+                        "part": false
+                    },
+                    {
+                        "name": "Dinagat Islands",
+                        "part": true,
+                        "includes": {
+                            "type": "rest"
+                        }
+                    }
+                ]
+            }
+        },
+        "2": {
+            "areas": {
+                "0": [],
+                "1": [
+                    {
+                        "name": "Eastern Samar",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "southern",
+                            "objects": [
+                                "Guiuan",
+                                "Mercedes",
+                                "Salcedo",
+                                "Quinapondan",
+                                "Giporlos",
+                                "Balangiga",
+                                "Lawaan",
+                                "General Macarthur",
+                                "Hernani",
+                                "Llorente",
+                                "Balangkayan",
+                                "Maydolong",
+                                "Borongan City"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Samar",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "southern",
+                            "objects": [
+                                "Marabut",
+                                "Basey",
+                                "Calbiga",
+                                "Pinabacdao",
+                                "Villareal",
+                                "Santa Rita"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Leyte",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northeastern",
+                            "objects": [
+                                "Babatngon",
+                                "Tacloban City",
+                                "Palo",
+                                "Tanauan",
+                                "Tolosa"
+                            ]
+                        }
+                    }
+                ],
+                "2": [
+                    {
+                        "name": "Dinagat Islands",
+                        "part": true,
+                        "includes": {
+                            "type": "section",
+                            "term": "portion",
+                            "part": "northern",
+                            "objects": [
+                                "Loreto",
+                                "Tubajon"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "3": null,
+        "4": null,
+        "5": null
+    }
+}

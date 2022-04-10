@@ -72,6 +72,7 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
             return `${parentArea
                 .replace(/ /g, "_")
             }+${area
+                .replace(/^(.+) City$/gi, "City of $1")
                 .replace(/ /g, "_")
             }`;
     }
@@ -95,6 +96,8 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
         this.processAreas($, bulletin);
         // Crop to include only TCWS-affected areas.
         this.cropToBox($, this.findBoundingBox($));
+        // Add mask to remove extra areas.
+        this.addClip($);
         // Add blue background for water.
         this.addBackground($);
         // Rescale the SVG.
@@ -244,6 +247,20 @@ export default class PagasaParserFormatterSignals extends PagasaParserFormatter<
                 $path.attr("stroke-width", `${provinceLineThickness}`);
             }
         });
+    }
+
+    addClip($: cheerio.Root): void {
+        const $svg = $("svg");
+        const width = $svg.attr("width");
+        const height = $svg.attr("height");
+
+        $svg.prepend(
+            `<clipPath id="clip">
+                <rect x="0" y="0" width="${width}" height="${height}" />
+            </clipPath>`
+        );
+        $("#Provinces").attr("clip-path", "url(#clip)");
+        $("#Municipalities").attr("clip-path", "url(#clip)");
     }
 
     addBackground($: cheerio.Root): void {
